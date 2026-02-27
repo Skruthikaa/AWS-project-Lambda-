@@ -1,13 +1,10 @@
-# AWS-project-Lambda-
-# ✅ LAB GUIDE
-
 ## Serverless Image Resizer & Logger with S3 + Lambda
 
 Built on Amazon Web Services using Amazon S3, AWS Lambda, and Amazon CloudWatch
 
 ---
 
-# 1️⃣ Objective
+# 1️ Objective
 
 Build a fully serverless image processing system that:
 
@@ -21,7 +18,7 @@ This lab demonstrates **event-driven architecture** and **serverless automation*
 
 ---
 
-# 2️⃣ Architecture Overview
+# 2️ Architecture Overview
 
 ```
 User Upload →
@@ -34,11 +31,11 @@ Logs stored in CloudWatch
 
 ---
 
-# 3️⃣ Step-by-Step Implementation
+# 3️ Step-by-Step Implementation
 
 ---
 
-## 🔹 Step 1: Create S3 Buckets
+##  Step 1: Create S3 Buckets
 
 Create two buckets:
 
@@ -91,51 +88,8 @@ Under Configuration → Environment Variables:
 
 ---
 
-##  Step 5: Add Pillow Library (Lambda Layer Recommended)
-
-* Create Lambda Layer (Pillow)
-    Lambda does NOT include Pillow by default.
-    We must package it manually.
-
-* 5.1 Open AWS CloudShell
-    Go to top navigation → Click CloudShell
-
-* 5.2 Create Layer Directory
-   * mkdir pillow-layer
-   * cd pillow-layer
-   * mkdir python
-
-* 5.3 Install Pillow Inside python Folder
-* Run:
-docker run --rm \
--v "$PWD":/var/task \
---entrypoint "" \
-public.ecr.aws/lambda/python:3.11 \
-pip install pillow -t python/
-
-* 5.4 Zip the Layer
-    * zip -r pillow-layer.zip python
-
-* 5.5 Download Zip (Optional)
-    * You can download it locally if needed.
-  
-* 5.6 Create Layer in Lambda
-    * Go to Lambda → Layers
-    * Click Create layer
-    * Name:pillow-layer
-    * Upload pillow-layer.zip
-    * Compatible runtime:Python 3.11
-
-* 5.7 Attach Layer to Lambda
-    * Open Lambda → prod-image-resizer
-    * Scroll to Layers
-    * Click Add layer
-    * Select:Custom layers-pillow-layer-Add
-
----
-
-# 4️ Lambda Function Code
-
+# 5 Lambda Function Code
+     * Paste this code inside lambda_function.py
 ```python
 import json
 import boto3
@@ -192,10 +146,49 @@ def lambda_handler(event, context):
         'body': json.dumps('Thumbnail creation completed')
     }
 ```
+##  Step 6: Add Pillow Library (Lambda Layer Recommended)
 
+* Create Lambda Layer (Pillow)
+    Lambda does NOT include Pillow by default.
+    We must package it manually.
+
+* 6.1 Open AWS CloudShell
+    Go to top navigation → Click CloudShell
+
+* 6.2 Create Layer Directory
+   * mkdir pillow-layer
+   * cd pillow-layer
+   * mkdir python
+
+* 6.3 Install Pillow Inside python Folder
+* Run:
+docker run --rm \
+-v "$PWD":/var/task \
+--entrypoint "" \
+public.ecr.aws/lambda/python:3.11 \
+pip install pillow -t python/
+
+* 6.4 Zip the Layer
+    * zip -r pillow-layer.zip python
+
+* 6.5 Download Zip (Optional)
+    * You can download it locally if needed.
+  
+* 6.6 Create Layer in Lambda
+    * Go to Lambda → Layers
+    * Click Create layer
+    * Name:pillow-layer
+    * Upload pillow-layer.zip
+    * Compatible runtime:Python 3.11
+
+* 6.7 Attach Layer to Lambda
+    * Open Lambda → prod-image-resizer
+    * Scroll to Layers
+    * Click Add layer
+    * Select:Custom layers-pillow-layer-Add
 ---
 
-##  Step 6: Configure S3 Trigger
+##  Step 7: Configure S3 Trigger
 
 Go to:
 
@@ -206,7 +199,7 @@ Go to:
 
 ---
 
-# 5️ Testing
+# 8 Testing
 
 ###  Test 1: Upload image1.jpg
 
@@ -231,7 +224,7 @@ Expected:
 
 ---
 
-# 6️ Verification
+# 9 Verification
 
 ### Check:
 
@@ -249,7 +242,7 @@ Expected:
 
 ---
 
-# 7️ Short Explanation (Submission Section)
+# 10 Short Explanation (Submission Section)
 
 ### Why use Lambda for image processing?
 

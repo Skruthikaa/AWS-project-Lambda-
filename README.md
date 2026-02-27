@@ -4,7 +4,7 @@ Built on Amazon Web Services using Amazon S3, AWS Lambda, and Amazon CloudWatch
 
 ---
 
-# 1️ Objective
+## 1️ Objective
 
 Build a fully serverless image processing system that:
 
@@ -18,7 +18,7 @@ This lab demonstrates **event-driven architecture** and **serverless automation*
 
 ---
 
-# 2️ Architecture Overview
+## 2️ Architecture Overview
 
 ```
 User Upload →
@@ -29,9 +29,7 @@ Thumbnail saved to Thumbnails Bucket →
 Logs stored in CloudWatch
 ```
 
----
-
-# 3️ Step-by-Step Implementation
+## 3️ Step-by-Step Implementation
 
 ---
 
@@ -100,7 +98,7 @@ Under Configuration → Environment Variables:
 
 ---
 
-# 5 Lambda Function Code
+## 5 Lambda Function Code
      * Paste this code inside lambda_function.py
 ```python
 import json
@@ -220,7 +218,7 @@ Go to:
   
 ---
 
-# 8 Testing
+## 8 Testing
 
 ###  Test 1: Upload image1.jpg
 
@@ -233,7 +231,7 @@ Expected:
 
 ---
 
-# 9 Verification
+## 9 Verification
 
 ### Check:
 
@@ -251,7 +249,7 @@ Expected:
 
 ---
 
-# 10 Short Explanation (Submission Section)
+## 10 Short Explanation
 
 ### Why use Lambda for image processing?
 

@@ -158,9 +158,9 @@ def lambda_handler(event, context):
         'body': json.dumps('Thumbnail creation completed')
     }
 
+```
 <img width="1903" height="795" alt="Screenshot 2026-02-26 153903" src="https://github.com/user-attachments/assets/3efa5f49-59bb-4849-944c-9b2a66035d32" />
 
-```
 ##  Step 6: Add Pillow Library (Lambda Layer Recommended)
 
 * Create Lambda Layer (Pillow)

@@ -62,7 +62,7 @@ Create two buckets:
 * Select:
     * Trusted entity: AWS service
     * Use case: Lambda
-       <img width="1916" height="814" alt="Screenshot 2026-02-26 151113" src="https://github.com/user-attachments/assets/b4b46a6f-bc7f-4c19-b58f-09e56c4b5604" />
+<img width="1916" height="814" alt="Screenshot 2026-02-26 151113" src="https://github.com/user-attachments/assets/b4b46a6f-bc7f-4c19-b58f-09e56c4b5604" />
 
 ## 2.2 Attach Policies
  * Attach:
@@ -83,7 +83,7 @@ Create two buckets:
 * Timeout: 30 seconds
 * Memory: 256 MB (recommended)
 
- <img width="1915" height="691" alt="Screenshot 2026-02-26 152053" src="https://github.com/user-attachments/assets/2d64c5ab-2523-4701-bef7-c41714321e4c" />
+<img width="1915" height="691" alt="Screenshot 2026-02-26 152053" src="https://github.com/user-attachments/assets/2d64c5ab-2523-4701-bef7-c41714321e4c" />
  
 ---
 
@@ -187,7 +187,7 @@ pip install pillow -t python/
 * 6.5 Download Zip (Optional)
     * You can download it locally if needed.
  
-   <img width="1916" height="826" alt="Screenshot 2026-02-26 154405" src="https://github.com/user-attachments/assets/77f390b2-499d-4152-9db7-0151ad82c445" />
+<img width="1916" height="826" alt="Screenshot 2026-02-26 154405" src="https://github.com/user-attachments/assets/77f390b2-499d-4152-9db7-0151ad82c445" />
    
 * 6.6 Create Layer in Lambda
     * Go to Lambda → Layers
@@ -195,8 +195,8 @@ pip install pillow -t python/
     * Name:pillow-layer
     * Upload pillow-layer.zip
     * Compatible runtime:Python 3.11
- 
-      <img width="1919" height="754" alt="Screenshot 2026-02-26 155004" src="https://github.com/user-attachments/assets/a52e68f5-5ce0-42c6-96b5-31265b0c2b05" />
+
+<img width="1919" height="754" alt="Screenshot 2026-02-26 155004" src="https://github.com/user-attachments/assets/a52e68f5-5ce0-42c6-96b5-31265b0c2b05" />
 
 * 6.7 Attach Layer to Lambda
     * Open Lambda → prod-image-resizer
@@ -227,7 +227,8 @@ Expected:
 * Thumbnail created in thumbnails bucket
 * CloudWatch logs show filename + size + success
 
-<img width="1915" height="500" alt="Screenshot 2026-02-26 155953" src="https://github.com/user-attachments/assets/f346533c-b73c-4bfc-9e67-0d1efa41ce56" />
+<img width="1249" height="495" alt="Screenshot 2026-02-27 123904" src="https://github.com/user-attachments/assets/de3b36fb-8fd6-457a-88bf-d3954907d897" />
+<img width="1024" height="434" alt="image" src="https://github.com/user-attachments/assets/e9c35e57-7a9f-4a98-a2e9-c65e3eadc417" />
 
 ---
 

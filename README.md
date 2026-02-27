@@ -41,13 +41,20 @@ Create two buckets:
 
 ### 1. marketing-uploads-bucket
 
+<img width="1916" height="753" alt="Screenshot 2026-02-26 150622" src="https://github.com/user-attachments/assets/aa5f86ea-cf59-466b-860f-17f81ad0a7e4" />
+
+
 ### 2. marketing-thumbnails-bucket
+
+<img width="1914" height="767" alt="Screenshot 2026-02-26 150753" src="https://github.com/user-attachments/assets/46f58894-bc3e-4c5f-85b3-025b1341c7e8" />
 
 ### Configuration for BOTH buckets:
 
 *  Enable Versioning
 *  Block all public access
 *  No static website hosting
+
+<img width="1919" height="742" alt="Screenshot 2026-02-26 150832" src="https://github.com/user-attachments/assets/3a8c3ce9-eff9-4bf3-af28-e5b7ff421e37" />
 
 ---
 
@@ -57,6 +64,7 @@ Create two buckets:
 * Select:
     * Trusted entity: AWS service
     * Use case: Lambda
+       <img width="1916" height="814" alt="Screenshot 2026-02-26 151113" src="https://github.com/user-attachments/assets/b4b46a6f-bc7f-4c19-b58f-09e56c4b5604" />
 
 ## 2.2 Attach Policies
  * Attach:
@@ -64,7 +72,9 @@ Create two buckets:
     * CloudWatchLogsFullAccess
     * AWSLambdaBasicExecution
     * AmazonDynamoDBFullAccess
- 
+  
+<img width="1919" height="853" alt="Screenshot 2026-02-26 151652" src="https://github.com/user-attachments/assets/550ebb81-f44e-4cda-b460-1c176a561d65" />
+  
 ---
 
 ##  Step 3: Create Lambda Function
@@ -75,6 +85,8 @@ Create two buckets:
 * Timeout: 30 seconds
 * Memory: 256 MB (recommended)
 
+ <img width="1915" height="691" alt="Screenshot 2026-02-26 152053" src="https://github.com/user-attachments/assets/2d64c5ab-2523-4701-bef7-c41714321e4c" />
+ 
 ---
 
 ##  Step 4: Add Environment Variables (Best Practice)
@@ -145,6 +157,9 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Thumbnail creation completed')
     }
+
+<img width="1903" height="795" alt="Screenshot 2026-02-26 153903" src="https://github.com/user-attachments/assets/3efa5f49-59bb-4849-944c-9b2a66035d32" />
+
 ```
 ##  Step 6: Add Pillow Library (Lambda Layer Recommended)
 
@@ -173,13 +188,17 @@ pip install pillow -t python/
 
 * 6.5 Download Zip (Optional)
     * You can download it locally if needed.
-  
+ 
+   <img width="1916" height="826" alt="Screenshot 2026-02-26 154405" src="https://github.com/user-attachments/assets/77f390b2-499d-4152-9db7-0151ad82c445" />
+   
 * 6.6 Create Layer in Lambda
     * Go to Lambda → Layers
     * Click Create layer
     * Name:pillow-layer
     * Upload pillow-layer.zip
     * Compatible runtime:Python 3.11
+ 
+      <img width="1919" height="754" alt="Screenshot 2026-02-26 155004" src="https://github.com/user-attachments/assets/a52e68f5-5ce0-42c6-96b5-31265b0c2b05" />
 
 * 6.7 Attach Layer to Lambda
     * Open Lambda → prod-image-resizer
@@ -197,6 +216,8 @@ Go to:
 * Destination: Lambda Function
 * Select your Lambda
 
+<img width="1919" height="733" alt="Screenshot 2026-02-26 155650" src="https://github.com/user-attachments/assets/948cf4c9-524b-40f1-b1d1-49184a7569c2" />
+  
 ---
 
 # 8 Testing
@@ -208,19 +229,7 @@ Expected:
 * Thumbnail created in thumbnails bucket
 * CloudWatch logs show filename + size + success
 
-###  Test 2: Upload image2.png
-
-Expected:
-
-* Thumbnail created
-* Logs show success
-
-###  Test 3: Upload file.txt
-
-Expected:
-
-* No thumbnail created
-* CloudWatch log shows WARNING
+<img width="1915" height="500" alt="Screenshot 2026-02-26 155953" src="https://github.com/user-attachments/assets/f346533c-b73c-4bfc-9e67-0d1efa41ce56" />
 
 ---
 
